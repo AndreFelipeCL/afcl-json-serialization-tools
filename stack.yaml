@@ -1,4 +1,4 @@
-description: Deve ajudar o DEV
+description: Projeto SpringBoot que prove uma pequena API ao usuario com uma pequena classe desserializadora para ser implementada que traz consigo um conjunto de metodos facilitadores para a conversão de tipo JSON para tipos primitivos, complexos e de domínio, quando injetados desserializadores correspondentes.
 name: afcl-json-serialization-tools
 display-name: afcl-json-serialization-tools
 picture: stack.png
@@ -6,8 +6,12 @@ category: backend # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-file
 compatibility: # Put a list of technologies compatible with the stack
   - java
   - spring
+  - rest
+  - json
+  - jackson
 technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies 
   - docker 
+  - maven
 about: docs/about.md
 use-cases:
   - title: Use Case Title

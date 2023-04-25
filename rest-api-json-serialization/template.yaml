@@ -1,0 +1,24 @@
+name: rest-api-json-serialization
+description: Projeto SpringBoot que prove uma pequena API ao usuario com uma pequena classe desserializadora, ao inves de uso de auto desserialização via DTO.
+types:
+  - app-template
+inputs:
+  - label: App Name
+    type: text
+    name: app_name
+  - label: Group ID
+    type: text
+    name: app_group_id
+  - label: Artifact ID
+    type: text
+    name: app_artifact_id
+  - label: App Description
+    type: text
+    name: app_description
+  - label: Versao
+    type: text
+    name: app_version
+
+computedInputs:
+  "base_package": "{{inputs.app_group_id}}.{{inputs.app_artifact_id}}"
+  "base_dir": "{{computed_inputs.base_package | replace('.', '/')}}"
