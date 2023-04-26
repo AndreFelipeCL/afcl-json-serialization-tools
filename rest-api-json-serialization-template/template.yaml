@@ -1,0 +1,39 @@
+name: rest-api-json-serialization-template
+description: Projeto SpringBoot que prove uma pequena API ao usuario com uma pequena classe desserializadora, ao inves de uso de auto desserialização via DTO.
+types:
+  - app-template
+
+inputs:
+  - label: App Name
+    type: text
+    name: app_name
+    default: REST API AFCL
+    global: true
+
+  - label: Group ID
+    type: text
+    name: app_group_id
+    default: br.com.zup
+    global: true
+
+  - label: Artifact ID
+    type: text
+    name: app_artifact_id
+    default: restapi
+    global: true
+
+  - label: App Description
+    type: text
+    name: app_description
+    default: Projeto em SpringBoot API REST AFCL
+    global: true
+
+  - label: Versao
+    type: text
+    name: app_version
+    default: 0.0.1-SNAPSHOT
+    global: true
+
+global-computed-inputs:
+  "base_package": "{{app_group_id}}.{{app_artifact_id}}"
+  "base_dir": "{{base_package | replace('.', '/')}}"

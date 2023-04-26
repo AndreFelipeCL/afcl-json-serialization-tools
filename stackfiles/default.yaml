@@ -1,14 +1,15 @@
 type: app
 description: Default stackfile usecase description
+
 # template used to create the project
-template: afcl-json-serialization-tools/<template-name>
+template: afcl-json-serialization-tools/rest-api-json-serialization-template
 inputs:
-  some_input: value
+  app_name: REST API AFCL
+  app_group_id: br.com.zup
+  app_artifact_id: restapi
+  app_description: Projeto em SpringBoot API REST AFCL
+  app_version: 0.0.1-SNAPSHOT
+
 # list of plugins to be applied after project creation
 plugins:
-  - plugin: afcl-json-serialization-tools/<plugin-name>
-    inputs:
-      some_input: value
-      some_list:
-        - item1
-        - item2
+  - plugin: afcl-json-serialization-tools/json-serialization-tools-plugin

@@ -1,0 +1,43 @@
+name: json-serialization-tools-plugin
+description: Plugin que adiciona uma pequena classe com métodos de desserialização, facilitando assim a conversão de tipos primitivos, complexos e de domínio.
+display-name: json-serialization-tools-plugin
+picture: plugin.png
+category: backend # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/plugin/#category
+compatibility:
+  - java
+  - spring
+  - rest
+  - json
+  - jackson
+about: docs/about.md
+usage: docs/usage.md
+use-case: docs/use-case.md
+implementation: docs/implementation.md
+technologies: # Ref: https://docs.stackspot.com/docs/create-stacks/yaml-files/yaml/#technologies
+  - "Api"
+types:
+  - app
+
+hooks:
+  - type: edit-xml
+    trigger: after-render
+    path: pom.xml
+    encoding: UTF-8
+    indent: "\t"
+    changes:
+      - xpath: .//dependencies
+        append: 
+          value: |
+            <dependency>
+              <groupId>commons-io</groupId>
+              <artifactId>commons-io</artifactId>
+              <version>2.11.0</version>
+            </dependency>
+        when:
+          not-exists: ./dependencies/dependency/groupId/[.='commons-io']/../artifactId[.='commons-io']
+
+  - type: run
+    trigger: after-render
+    commands:
+      - mvn clean compile
+      - mvn clean
